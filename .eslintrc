@@ -1,16 +1,32 @@
 {
-  "extends": "eslint-config-airbnb",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "mocha": true,
     "node": true
   },
   "rules": {
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    // complexity rules to keep the code nimble
+    "complexity": [2, 3],
+    "max-depth": [2, 2],
+    "max-nested-callbacks": [2, 1],
+    "max-statements": [2, 15],
+
+    // AirBnB overrides that make no sense
+    "no-confusing-arrow": 0, // No, this is not confusing.
+
+    "import/no-unresolved": [2, { ignore: ['library-boilerplate'] }],
   },
-  "plugins": [
-    "react"
-  ]
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  }
 }

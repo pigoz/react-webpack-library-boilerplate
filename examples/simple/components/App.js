@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { add } from 'library-boilerplate';
 
-export default class App extends Component {
+/* eslint-disable react/prefer-stateless-function */
+/* need a full blown component for HMR to work */
+export default class App extends React.Component {
   render() {
     return (
       <p>
